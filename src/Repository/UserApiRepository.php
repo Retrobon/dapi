@@ -47,20 +47,18 @@ class UserApiRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }
-//    /**
-//     * @return UserApi[] Returns an array of UserApi objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('u')
-//            ->andWhere('u.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('u.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+
+    public function findByApiKey($value): ?UserApi
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.api_key = :val')
+            ->setParameter('val', $value)
+            ->orderBy('u.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
 
 //    public function findOneBySomeField($value): ?UserApi
 //    {

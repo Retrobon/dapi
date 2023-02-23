@@ -49,4 +49,9 @@ class JpostService
     {
         return PosterApi::menu()->getCategories()->response;
     }
+
+    public function getProducts(): array
+    {
+        return PosterApi::menu()->getProducts()->response;
+    }
 }

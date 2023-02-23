@@ -22,6 +22,9 @@ class UserApi
     #[ORM\Column(length: 255)]
     private ?string $site_url_request = null;
 
+    #[ORM\ManyToOne(inversedBy: 'api')]
+    private ?User $user = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -62,4 +65,24 @@ class UserApi
 
         return $this;
     }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->name;
+    }
+
+
 }
